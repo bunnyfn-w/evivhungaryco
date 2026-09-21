@@ -1,738 +1,300 @@
 <!DOCTYPE html>
-<html lang="hu" class="scroll-smooth">
+<html lang="hu" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVIV — Villanyszerelés & Elektromos Hálózatok | 16 Éve a Piacon</title>
-    
-    <!-- Tailwind CSS CDN -->
+    <title>EVIV | Villanyszerelési Szolgáltatások - 16 Éve a Piacon</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Syne & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        mono: {
-                            bg: '#080808',
-                            card: '#121212',
-                            cardHover: '#181818',
-                            border: 'rgba(255, 255, 255, 0.12)',
-                            borderLight: 'rgba(255, 255, 255, 0.25)',
-                            subtle: '#a1a1aa',
-                            muted: '#52525b',
-                        }
-                    },
                     fontFamily: {
-                        heading: ['Syne', 'sans-serif'],
-                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                        syne: ['Syne', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        surface: '#121212',
+                        borderLight: '#262626',
                     }
                 }
             }
         }
     </script>
-
     <style>
         body {
-            background-color: #080808;
-            color: #ffffff;
+            background-color: #0A0A0A;
+            color: #EDEDED;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
         }
-
-        .font-heading {
-            font-family: 'Syne', sans-serif;
-        }
-
-        /* Subtle Grid Pattern Background */
-        .bg-grid-pattern {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
-        /* Glassmorphism Effect */
+        .font-syne { fontFamily: 'Syne', sans-serif; }
         .glass-panel {
-            background: rgba(18, 18, 18, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        .glass-panel:hover {
-            border-color: rgba(255, 255, 255, 0.25);
+        .glass-panel-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* Custom Range Slider Styling */
-        input[type=range] {
-            -webkit-appearance: none;
-            background: #27272a;
-            border-radius: 9999px;
-            height: 6px;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            background: #ffffff;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            transition: transform 0.15s ease;
-        }
-
-        input[type=range]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-
-        /* Text outline effect for bold typography */
-        .text-outline {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-            color: transparent;
+        .glass-panel-hover:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-white selection:text-black bg-grid-pattern">
+<body class="antialiased selection:bg-white selection:text-black">
 
-    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-mono-border">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- Brand Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 bg-white text-black font-extrabold flex items-center justify-center rounded-none tracking-tighter text-xl transition-transform group-hover:scale-105">
-                        ⚡
-                    </div>
-                    <div>
-                        <span class="text-2xl font-extrabold tracking-wider font-heading uppercase text-white block">EVIV</span>
-                        <span class="block text-[9px] uppercase tracking-[0.25em] text-mono-subtle -mt-1 font-mono">16 Éve A Piacon</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-mono-subtle">
-                    <a href="#szolgaltatasok" class="hover:text-white transition-colors">Szolgáltatások</a>
-                    <a href="#rolunk" class="hover:text-white transition-colors">Rólunk</a>
-                    <a href="#kalkulator" class="hover:text-white transition-colors">Kalkulátor</a>
-                    <a href="#kapcsolat" class="hover:text-white transition-colors">Kapcsolat</a>
-                </nav>
-
-                <!-- Header CTA Button -->
-                <div class="hidden sm:flex items-center gap-4">
-                    <a href="#kapcsolat" class="px-5 py-2.5 text-xs uppercase tracking-widest font-extrabold text-black bg-white hover:bg-gray-200 transition-all flex items-center gap-2 border border-white">
-                        <span>Ajánlatkérés</span>
-                    </a>
+    <!-- Navigáció -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-white text-black font-syne font-extrabold text-xl flex items-center justify-center transition-transform group-hover:scale-105">
+                    E
                 </div>
-
-                <!-- Mobile Menu Toggle Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Menü megnyitása">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
+                <div class="flex flex-col">
+                    <span class="font-syne font-extrabold text-xl tracking-wider text-white">EVIV</span>
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase">Villanyszerelés</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#szolgaltatasok" class="hover:text-gray-400 transition-colors">SZOLGÁLTATÁSOK</a>
+                <a href="#tapasztalat" class="hover:text-gray-400 transition-colors">16 ÉV TAPASZTALAT</a>
+                <a href="#gyik" class="hover:text-gray-400 transition-colors">GYIK</a>
+                <a href="#kapcsolat" class="hover:text-gray-400 transition-colors">KAPCSOLAT</a>
             </div>
-        </div>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden md:hidden bg-mono-card border-b border-mono-border px-6 py-6 space-y-4 text-xs font-semibold uppercase tracking-widest text-mono-subtle">
-            <a href="#szolgaltatasok" class="mobile-link block hover:text-white py-1">Szolgáltatások</a>
-            <a href="#rolunk" class="mobile-link block hover:text-white py-1">Rólunk</a>
-            <a href="#kalkulator" class="mobile-link block hover:text-white py-1">Árkalkulátor</a>
-            <a href="#kapcsolat" class="mobile-link block hover:text-white py-1">Kapcsolat</a>
-            <a href="tel:+36301234567" class="block w-full text-center bg-white text-black font-extrabold py-3 uppercase tracking-widest mt-4">
-                <i class="fa-solid fa-phone mr-2"></i>+36 30 123 4567
+            <a href="#kapcsolat" class="px-5 py-2.5 bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-all transform hover:scale-105">
+                AJÁNLATKÉRÉS
             </a>
         </div>
-    </header>
+    </nav>
 
-    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="max-w-4xl">
-                
-                <!-- KSP Badge -->
-                <div class="inline-flex items-center gap-3 px-3 py-1.5 border border-mono-border bg-mono-card/60 text-xs font-mono uppercase tracking-widest text-mono-subtle mb-8">
-                    <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-                    <span>EVIV Villanyszerelés — 16 Éve a Piacon</span>
-                </div>
-
-                <!-- Hero Heading -->
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-white tracking-tight uppercase leading-[0.95] mb-8">
-                    PRECÍZIÓ ÉS <br />
-                    <span class="text-outline">ENERGIA</span> 16 ÉVE.
-                </h1>
-
-                <!-- Hero Description -->
-                <p class="text-mono-subtle text-base sm:text-lg max-w-2xl leading-relaxed font-light mb-10">
-                    Profi villanyszerelés 16 év bizonyított szakmai tapasztalatával. Lakossági és ipari elektromos hálózatok kiépítése, korszerűsítése és intelligens vezérlése mérnöki precizitással.
-                </p>
-
-                <!-- Hero Action Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 mb-16">
-                    <a href="#kapcsolat" class="px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition-all text-center flex items-center justify-center gap-3">
-                        <span>Azonnali Ajánlatkérés</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                    <a href="#kalkulator" class="px-8 py-4 border border-mono-border hover:border-white text-white font-bold uppercase tracking-widest text-xs transition-all text-center flex items-center justify-center gap-3 glass-panel">
-                        <i class="fa-solid fa-calculator text-xs"></i>
-                        <span>Interaktív Árkalkulátor</span>
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-mono-border">
-                    <div>
-                        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white">16+</div>
-                        <div class="text-xs uppercase tracking-widest text-mono-subtle mt-1 font-mono">Év Tapasztalat</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white">1200+</div>
-                        <div class="text-xs uppercase tracking-widest text-mono-subtle mt-1 font-mono">Sikeres Projekt</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white">100%</div>
-                        <div class="text-xs uppercase tracking-widest text-mono-subtle mt-1 font-mono">Garanciavállalás</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white">24/7</div>
-                        <div class="text-xs uppercase tracking-widest text-mono-subtle mt-1 font-mono">Ügyeleti Szolgálat</div>
-                    </div>
-                </div>
-
+    <!-- Hero Szekció -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden border-b border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 text-xs tracking-widest uppercase text-gray-300 mb-8">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                16 ÉVE A LAKOSSÁGI ÉS IPARI PIACON
             </div>
-        </div>
-    </section>
-
-    <section id="szolgaltatasok" class="py-24 border-t border-mono-border relative bg-mono-bg">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <h1 class="font-syne font-extrabold text-5xl md:text-8xl tracking-tight leading-none mb-8 text-white">
+                PRECÍZIÓ ÉS <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">
+                    SZAKÉRTELEMEK.
+                </span>
+            </h1>
+
+            <p class="max-w-2xl text-lg md:text-xl text-gray-400 mb-12 font-light leading-relaxed">
+                Mérnöki precizitású villanyszerelési megoldások a legmagasabb biztonsági szabványok szerint. Komplett kivitelezés, modernizálás és EV-töltők telepítése.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-16">
+                <a href="tel:+36301234567" class="px-8 py-4 bg-white text-black font-bold text-center tracking-wider hover:bg-gray-200 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone"></i> HÍVÁS: +36 30 123 4567
+                </a>
+                <a href="mailto:info@eviv.hu" class="px-8 py-4 border border-white/20 text-white font-bold text-center tracking-wider hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-envelope"></i> INFO@EVIV.HU
+                </a>
+            </div>
+
+            <!-- Mutatók -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/10">
                 <div>
-                    <span class="text-xs font-mono uppercase tracking-[0.3em] text-mono-subtle block mb-3">// Szolgáltatásaink</span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white uppercase tracking-tight">Kivitelezés & Szaktudás</h2>
+                    <div class="font-syne text-4xl font-extrabold text-white mb-1">16+</div>
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">Év Tapasztalat</div>
                 </div>
-                <p class="text-mono-subtle text-xs sm:text-sm max-w-md leading-relaxed font-light">
-                    Az EVIV 16 év tapasztalatával kínál átfogó megoldásokat a lakossági villanyszereléstől a komplex ipari rendszerekig.
+                <div>
+                    <div class="font-syne text-4xl font-extrabold text-white mb-1">100%</div>
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">Garancia</div>
+                </div>
+                <div>
+                    <div class="font-syne text-4xl font-extrabold text-white mb-1">1200+</div>
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">Projekt</div>
+                </div>
+                <div>
+                    <div class="font-syne text-4xl font-extrabold text-white mb-1">EV</div>
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">Töltő Specialisták</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Szolgáltatások -->
+    <section id="szolgaltatasok" class="py-24 px-6 border-b border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+                <div>
+                    <span class="text-xs tracking-widest text-gray-500 uppercase">PROFI LEFEDETTSÉG</span>
+                    <h2 class="font-syne font-bold text-3xl md:text-5xl mt-2">SZOLGÁLTATÁSOK</h2>
+                </div>
+                <p class="text-gray-400 max-w-md mt-4 md:mt-0 font-light text-sm">
+                    Minden munkát a szabványoknak megfelelően, szabványossági nyilatkozattal és garanciával adunk át.
                 </p>
             </div>
 
-            <!-- Services Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Service 1 -->
-                <div class="glass-panel p-8 rounded-none transition-all duration-300 hover:bg-mono-cardHover group relative">
-                    <div class="text-2xl text-white mb-6 font-mono font-bold">01</div>
-                    <h3 class="text-xl font-bold font-heading text-white uppercase tracking-wider mb-3">Újrahálózás & Felújítás</h3>
-                    <p class="text-mono-subtle text-xs leading-relaxed font-light mb-6">
-                        Elavult alumínium vezetékek cseréje, teljes körű csövezés és modern rézvezetékek kiépítése a legújabb szabványok szerint.
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-panel p-8 glass-panel-hover">
+                    <i class="fa-solid fa-house-bolt text-3xl text-white mb-6"></i>
+                    <h3 class="font-syne font-bold text-xl mb-3">Újrahuzalozás & Hálózat</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Családi házak, lakások és irodák villamos hálózatának kiépítése, teljes felújítása és korszerűsítése.
                     </p>
-                    <ul class="text-xs text-mono-subtle space-y-2 border-t border-mono-border pt-4 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Horonymarás pormentes technológiával</li>
-                        <li class="flex items-center gap-2"><li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Lakások, családi házak átkábelezése</li>
-                    </ul>
+                    <span class="text-xs tracking-widest uppercase text-gray-500">MÉRÉSEK ÉS KIVITELEZÉS</span>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="glass-panel p-8 rounded-none transition-all duration-300 hover:bg-mono-cardHover group relative">
-                    <div class="text-2xl text-white mb-6 font-mono font-bold">02</div>
-                    <h3 class="text-xl font-bold font-heading text-white uppercase tracking-wider mb-3">Okosotthon Kiépítés</h3>
-                    <p class="text-mono-subtle text-xs leading-relaxed font-light mb-6">
-                        Intelligens épületautomatizálás, okos világítás, redőny- és fűtésvezérlés tervezése és szakszerű telepítése.
+                <div class="glass-panel p-8 glass-panel-hover">
+                    <i class="fa-solid fa-charging-station text-3xl text-white mb-6"></i>
+                    <h3 class="font-syne font-bold text-xl mb-3">EV Töltő Telepítés</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Elektromos autó töltőállomások (fali töltők) professzionális telepítése, hálózatbővítés bejelentéssel.
                     </p>
-                    <ul class="text-xs text-mono-subtle space-y-2 border-t border-mono-border pt-4 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> KNX, Loxone és Shelly rendszerek</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Távoli okostelefonos vezérlés</li>
-                    </ul>
+                    <span class="text-xs tracking-widest uppercase text-gray-500">OTTHONI ÉS CÉGES TÖLTŐK</span>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="glass-panel p-8 rounded-none transition-all duration-300 hover:bg-mono-cardHover group relative">
-                    <div class="text-2xl text-white mb-6 font-mono font-bold">03</div>
-                    <h3 class="text-xl font-bold font-heading text-white uppercase tracking-wider mb-3">E-Autó Töltő Telepítés</h3>
-                    <p class="text-mono-subtle text-xs leading-relaxed font-light mb-6">
-                        Otthoni és céges elektromos autó fali töltők (Wallbox) felméréése, teljesítménybővítése és biztonságos bekötése.
+                <div class="glass-panel p-8 glass-panel-hover">
+                    <i class="fa-solid fa-box-archive text-3xl text-white mb-6"></i>
+                    <h3 class="font-syne font-bold text-xl mb-3">Mérőhely Korszerűsítés</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Regisztrált villanyszerelői munkák, mérőhelyek szabványosítása, Amper bővítés ügyintézése.
                     </p>
-                    <ul class="text-xs text-mono-subtle space-y-2 border-t border-mono-border pt-4 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Dynamic Load Management (DLM)</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Hálózati kapacitás ellenőrzés</li>
-                    </ul>
+                    <span class="text-xs tracking-widest uppercase text-gray-500">REGISZTRÁLT KIVITELEZŐ</span>
                 </div>
-
-                <!-- Service 4 -->
-                <div class="glass-panel p-8 rounded-none transition-all duration-300 hover:bg-mono-cardHover group relative">
-                    <div class="text-2xl text-white mb-6 font-mono font-bold">04</div>
-                    <h3 class="text-xl font-bold font-heading text-white uppercase tracking-wider mb-3">Ipari Villanyszerelés</h3>
-                    <p class="text-mono-subtle text-xs leading-relaxed font-light mb-6">
-                        Műhelyek, csarnokok és társasházak nagyáramú rendszereinek, kábeltálcáinak és főelosztóinak szakszerű szerelése.
-                    </p>
-                    <ul class="text-xs text-mono-subtle space-y-2 border-t border-mono-border pt-4 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> 3 fázisú ipari hálózatok</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Gépsorok és elosztók bekötése</li>
-                    </ul>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="glass-panel p-8 rounded-none transition-all duration-300 hover:bg-mono-cardHover group relative">
-                    <div class="text-2xl text-white mb-6 font-mono font-bold">05</div>
-                    <h3 class="text-xl font-bold font-heading text-white uppercase tracking-wider mb-3">Műszaki Felülvizsgálat</h3>
-                    <p class="text-mono-subtle text-xs leading-relaxed font-light mb-6">
-                        Hivatalos érintésvédelmi (ÉVV) és tűzvédelmi (VBF) felülvizsgálatok, jegyzőkönyvek kiállítása adásvételhez vagy bérbeadáshoz.
-                    </p>
-                    <ul class="text-xs text-mono-subtle space-y-2 border-t border-mono-border pt-4 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Műszeres állapotfelmérés</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Szabványossági tanúsítványok</li>
-                    </ul>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="glass-panel p-8 rounded-none transition-all duration-300 hover:bg-mono-cardHover group relative">
-                    <div class="text-2xl text-white mb-6 font-mono font-bold">06</div>
-                    <h3 class="text-xl font-bold font-heading text-white uppercase tracking-wider mb-3">Sürgősségi Hibaelhárítás</h3>
-                    <p class="text-mono-subtle text-xs leading-relaxed font-light mb-6">
-                        Gyorsszolgálati zárlatkeresés, égett kötés és biztosítéktábla hiba azonnali javítása ügyeleti rendszerben.
-                    </p>
-                    <ul class="text-xs text-mono-subtle space-y-2 border-t border-mono-border pt-4 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> 24/7 Ügyeleti elérhetőség</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-white"></i> Gyors hibabehatárolás</li>
-                    </ul>
-                </div>
-
             </div>
-
         </div>
     </section>
 
-    <section id="rolunk" class="py-24 border-t border-mono-border relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-6 space-y-8">
-                    <div>
-                        <span class="text-xs font-mono uppercase tracking-[0.3em] text-mono-subtle block mb-3">// Miért az EVIV?</span>
-                        <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white uppercase tracking-tight leading-tight">
-                            16 ÉVE A BIZTONSÁGOS ENERGIÁÉRT.
-                        </h2>
-                    </div>
-
-                    <p class="text-mono-subtle text-sm leading-relaxed font-light">
-                        Az EVIV 16 éve biztosítja az elektromos hálózatok biztonságát, modernizációját és precíz kiépítését lakossági és ipari ügyfelek számára. Számunkra a villanyszerelés nem csupán munka, hanem felelősség.
-                    </p>
-
-                    <div class="space-y-6 pt-2">
-                        <div class="flex items-start gap-5">
-                            <div class="w-10 h-10 bg-white text-black font-bold flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-award"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase tracking-wider text-white">16 Év Szakmai Tapasztalat</h4>
-                                <p class="text-xs text-mono-subtle mt-1 font-light">Több mint egy évtizede folyamatosan képezzük magunkat az új szabványokhoz.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-5">
-                            <div class="w-10 h-10 border border-mono-border text-white font-bold flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase tracking-wider text-white">Írásos Garancia & Megbízhatóság</h4>
-                                <p class="text-xs text-mono-subtle mt-1 font-light">Minden elvégzett munkánkra és beépített alkatrészre garanciát vállalunk.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-5">
-                            <div class="w-10 h-10 bg-white text-black font-bold flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-bolt"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase tracking-wider text-white">Kompromisszummentes Anyaghasználat</h4>
-                                <p class="text-xs text-mono-subtle mt-1 font-light">Kizárólag tanúsított Schneider, Legrand és WAGO komponensekkel dolgozunk.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-6">
-                    <div class="glass-panel p-8 sm:p-12 border border-mono-border relative overflow-hidden">
-                        <div class="text-xs font-mono uppercase tracking-[0.25em] text-mono-subtle mb-6">// EVIV Tanúsítványok & Garancia</div>
-                        
-                        <div class="space-y-6 text-xs font-mono text-mono-subtle border-b border-mono-border pb-8">
-                            <div class="flex justify-between items-center">
-                                <span>PIACI JELENLÉT:</span>
-                                <span class="text-white font-bold">16+ ÉVE FOLYAMATOS</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>REGISZTRÁLT VILLANYSZERELŐ:</span>
-                                <span class="text-white font-bold">ÉRVÉNYES LICENC</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>FELELŐSSÉGBIZTOSÍTÁS:</span>
-                                <span class="text-white font-bold">50.000.000 FT-IG</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>KIVITELEZÉSI GARANCIA:</span>
-                                <span class="text-white font-bold">TELJES KÖRŰ</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-8">
-                            <a href="tel:+36301234567" class="w-full py-4 border border-white text-white font-bold text-xs uppercase tracking-widest text-center block hover:bg-white hover:text-black transition-all">
-                                Közvetlen Hívás: +36 30 123 4567
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="kalkulator" class="py-24 border-t border-mono-border relative bg-mono-card/40">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-mono uppercase tracking-[0.3em] text-mono-subtle block mb-3">// Árkalkuláció</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white uppercase tracking-tight">Interaktív Árkalkulátor</h2>
-                <p class="text-mono-subtle text-xs sm:text-sm mt-3 font-light">
-                    Számítsa ki a várható kivitelezési költségeket az EVIV tapasztalati áraival!
+    <!-- Miért az EVIV (16 év) -->
+    <section id="tapasztalat" class="py-24 px-6 border-b border-white/10 bg-surface">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="text-xs tracking-widest text-gray-500 uppercase">MIÉRT AZ EVIV?</span>
+                <h2 class="font-syne font-bold text-3xl md:text-5xl mt-2 mb-6">16 ÉVE A SZAKMÁBAN.</h2>
+                <p class="text-gray-400 font-light leading-relaxed mb-8">
+                    Az <strong>EVIV</strong> több mint másfél évtizede garantálja a maximális biztonságot és minőséget. Nem ismerünk kompromisszumot a villanyszerelésben: prémium anyagokkal és a legújabb technológiai szabványokkal dolgozunk.
                 </p>
-            </div>
-
-            <div class="glass-panel p-8 sm:p-12 border border-mono-border">
-                <div class="grid lg:grid-cols-12 gap-12">
-                    
-                    <!-- Controls -->
-                    <div class="lg:col-span-7 space-y-8">
-                        
-                        <!-- Work Type -->
-                        <div>
-                            <label class="block text-xs uppercase tracking-widest font-mono text-mono-subtle mb-3">1. Munka Típusa</label>
-                            <select id="calcType" class="w-full bg-mono-card border border-mono-border focus:border-white px-4 py-3.5 text-xs text-white uppercase tracking-wider font-mono focus:outline-none transition-colors">
-                                <option value="complete">Teljes Hálózat Újrahálózása / Kiépítése</option>
-                                <option value="evcharger">E-Autó Töltő Telepítés</option>
-                                <option value="fusebox">Biztosítéktábla Csere & Áramkörök</option>
-                                <option value="troubleshoot">Sürgősségi Hibaelhárítás & Zárlat</option>
-                            </select>
-                        </div>
-
-                        <!-- Slider: Area -->
-                        <div id="areaContainer">
-                            <div class="flex justify-between text-xs font-mono uppercase tracking-widest text-mono-subtle mb-3">
-                                <span>2. Alapterület (m²)</span>
-                                <span class="text-white font-bold"><span id="areaText">65</span> m²</span>
-                            </div>
-                            <input type="range" id="calcArea" min="20" max="250" value="65" step="5" class="w-full">
-                        </div>
-
-                        <!-- Slider: Outlets -->
-                        <div id="outletContainer">
-                            <div class="flex justify-between text-xs font-mono uppercase tracking-widest text-mono-subtle mb-3">
-                                <span>3. Tervezett kiállások száma</span>
-                                <span class="text-white font-bold"><span id="outletText">40</span> db</span>
-                            </div>
-                            <input type="range" id="calcOutlets" min="10" max="150" value="40" step="5" class="w-full">
-                        </div>
-
-                        <!-- Checkboxes / Options -->
-                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                            <label class="flex items-center gap-3 p-4 border border-mono-border bg-mono-card cursor-pointer hover:border-white/40 transition-colors">
-                                <input type="checkbox" id="calcUrgent" class="accent-white w-4 h-4">
-                                <span class="text-xs font-mono uppercase tracking-wider text-mono-subtle">Sürgősségi Kiszállás (24h)</span>
-                            </label>
-
-                            <label class="flex items-center gap-3 p-4 border border-mono-border bg-mono-card cursor-pointer hover:border-white/40 transition-colors">
-                                <input type="checkbox" id="calcSmart" class="accent-white w-4 h-4">
-                                <span class="text-xs font-mono uppercase tracking-wider text-mono-subtle">Okosotthon Előkészítés</span>
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <!-- Output Panel -->
-                    <div class="lg:col-span-5 bg-mono-card p-8 border border-mono-border flex flex-col justify-between relative">
-                        <div>
-                            <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-mono-subtle block mb-2">// Becsült Végösszeg</span>
-                            <div class="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-tight my-4">
-                                <span id="calcTotal">418.000</span> <span class="text-lg font-light text-mono-subtle">Ft-tól</span>
-                            </div>
-
-                            <div class="space-y-3 pt-6 border-t border-mono-border text-xs text-mono-subtle font-mono">
-                                <div class="flex justify-between">
-                                    <span>Tervezett Munkadíj:</span>
-                                    <span class="text-white" id="calcWorkFee">238.000 Ft</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Becsült Anyagköltség:</span>
-                                    <span class="text-white" id="calcMaterialFee">180.000 Ft</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>EVIV Garancia:</span>
-                                    <span class="text-white">Igen (Írásos)</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pt-8">
-                            <button id="calcApplyBtn" class="w-full py-4 bg-white text-black font-extrabold text-xs uppercase tracking-widest hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
-                                <span>Ajánlatkérés a számítással</span>
-                                <i class="fa-solid fa-arrow-right text-xs"></i>
-                            </button>
-                            <span class="block text-[10px] font-mono text-mono-muted text-center mt-3">* Az kalkuláció tájékoztató jellegű, pontos árajánlatot helyszíni felmérés után adunk.</span>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="kapcsolat" class="py-24 border-t border-mono-border relative bg-mono-card/20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            
-            <div class="grid lg:grid-cols-12 gap-12">
                 
-                <!-- Contact Direct Info -->
-                <div class="lg:col-span-5 space-y-8">
-                    <div>
-                        <span class="text-xs font-mono uppercase tracking-[0.3em] text-mono-subtle block mb-3">// Kapcsolat</span>
-                        <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white uppercase tracking-tight">Kérjen Ajánlatot</h2>
-                        <p class="text-mono-subtle text-xs sm:text-sm mt-3 font-light leading-relaxed">
-                            Vegye fel a kapcsolatot az EVIV csapatával, és kérjen személyre szabott ajánlatot!
-                        </p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-4 border border-white/10 glass-panel">
+                        <i class="fa-solid fa-check text-white"></i>
+                        <span class="text-sm font-medium">100% Szabványossági és Biztonsági Garancia</span>
                     </div>
-
-                    <div class="space-y-4 pt-4 font-mono text-xs">
-                        <a href="tel:+36301234567" class="flex items-center gap-4 p-5 glass-panel hover:bg-mono-cardHover transition-colors border border-mono-border">
-                            <i class="fa-solid fa-phone text-base text-white"></i>
-                            <div>
-                                <div class="text-mono-subtle uppercase text-[10px]">Telefon</div>
-                                <div class="text-white font-bold text-sm">+36 30 123 4567</div>
-                            </div>
-                        </a>
-
-                        <div class="flex items-center gap-4 p-5 glass-panel border border-mono-border">
-                            <i class="fa-solid fa-envelope text-base text-white"></i>
-                            <div>
-                                <div class="text-mono-subtle uppercase text-[10px]">E-mail</div>
-                                <div class="text-white font-bold text-sm">info@eviv.hu</div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 p-5 glass-panel border border-mono-border">
-                            <i class="fa-solid fa-location-dot text-base text-white"></i>
-                            <div>
-                                <div class="text-mono-subtle uppercase text-[10px]">Munkaterület</div>
-                                <div class="text-white font-bold text-sm">Budapest & Pest Megye</div>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-4 p-4 border border-white/10 glass-panel">
+                        <i class="fa-solid fa-check text-white"></i>
+                        <span class="text-sm font-medium">Transzparens árazás, nincsenek rejtett költségek</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 border border-white/10 glass-panel">
+                        <i class="fa-solid fa-check text-white"></i>
+                        <span class="text-sm font-medium">Tiszta, rendezett munkavégzés</span>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="lg:col-span-7">
-                    <div class="glass-panel p-8 sm:p-10 border border-mono-border">
-                        
-                        <!-- Toast Alert -->
-                        <div id="formToast" class="hidden mb-6 p-4 bg-white text-black text-xs font-mono font-bold flex items-center justify-between">
-                            <span>✔ Az EVIV sikeresen rögzítette ajánlatkérését! Hamarosan keresni fogjuk.</span>
-                            <i class="fa-solid fa-xmark cursor-pointer" onclick="document.getElementById('formToast').classList.add('hidden')"></i>
-                        </div>
-
-                        <form id="contactForm" class="space-y-6">
-                            
-                            <div class="grid sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-[10px] font-mono uppercase tracking-widest text-mono-subtle mb-2">Név *</label>
-                                    <input type="text" required placeholder="Kovács István" class="w-full bg-mono-card border border-mono-border focus:border-white px-4 py-3.5 text-xs text-white focus:outline-none transition-colors">
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] font-mono uppercase tracking-widest text-mono-subtle mb-2">Telefonszám *</label>
-                                    <input type="tel" required placeholder="+36 30 000 0000" class="w-full bg-mono-card border border-mono-border focus:border-white px-4 py-3.5 text-xs text-white focus:outline-none transition-colors">
-                                </div>
-                            </div>
-
-                            <div class="grid sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-[10px] font-mono uppercase tracking-widest text-mono-subtle mb-2">Munkavégzés Helyszíne</label>
-                                    <input type="text" placeholder="Budapest, II. kerület" class="w-full bg-mono-card border border-mono-border focus:border-white px-4 py-3.5 text-xs text-white focus:outline-none transition-colors">
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] font-mono uppercase tracking-widest text-mono-subtle mb-2">Szolgáltatás Típusa</label>
-                                    <select class="w-full bg-mono-card border border-mono-border focus:border-white px-4 py-3.5 text-xs text-white uppercase tracking-wider font-mono focus:outline-none transition-colors">
-                                        <option>Újrahálózás & Felújítás</option>
-                                        <option>Okosotthon kiépítés</option>
-                                        <option>E-Autó töltő telepítés</option>
-                                        <option>Ipari villanyszerelés</option>
-                                        <option>Sürgősségi hibaelhárítás</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div id="calcSummaryContainer" class="hidden">
-                                <label class="block text-[10px] font-mono uppercase tracking-widest text-white mb-2">Kalkulált adatok:</label>
-                                <input type="text" id="calcSummaryInput" readonly class="w-full bg-mono-card border border-white/40 px-4 py-2 text-xs font-mono text-mono-subtle">
-                            </div>
-
-                            <div>
-                                <label class="block text-[10px] font-mono uppercase tracking-widest text-mono-subtle mb-2">Üzenet / Részletek</label>
-                                <textarea rows="4" placeholder="Kérjük, írja le röviden a feladatot..." class="w-full bg-mono-card border border-mono-border focus:border-white px-4 py-3.5 text-xs text-white focus:outline-none transition-colors"></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full py-4 bg-white text-black font-extrabold text-xs uppercase tracking-widest hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
-                                <span>Ajánlatkérés Elküldése</span>
-                                <i class="fa-solid fa-paper-plane text-xs"></i>
-                            </button>
-
-                        </form>
-
-                    </div>
-                </div>
-
             </div>
 
+            <div class="glass-panel p-8 md:p-12 border border-white/20 relative">
+                <div class="absolute top-0 right-0 p-6 text-xs tracking-widest text-gray-600 font-syne">EVIV // EST. 2010</div>
+                <h3 class="font-syne font-bold text-2xl mb-6">MUNKAFOLYAMATUNK</h3>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <span class="font-syne font-bold text-gray-600">01</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase tracking-wide">Helyszíni Felmérés</h4>
+                            <p class="text-gray-400 text-xs mt-1">Pontos igényfelmérés és műszaki tanácsadás a helyszínen.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <span class="font-syne font-bold text-gray-600">02</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase tracking-wide">Részletes Árajánlat</h4>
+                            <p class="text-gray-400 text-xs mt-1">Tételre lebontott, KATA/Céges kompatibilis árajánlat készítése.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <span class="font-syne font-bold text-gray-600">03</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase tracking-wide">Precíz Kivitelezés</h4>
+                            <p class="text-gray-400 text-xs mt-1">Szakszerű munkavégzés határidőre, érintésvédelmi jegyzőkönyvvel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-mono-border bg-mono-bg text-mono-subtle text-xs font-mono">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <span class="text-white font-bold font-heading uppercase text-sm">EVIV</span>
-                <span class="text-mono-muted">|</span>
-                <span>16 éve a biztonságos energiáért © 2026</span>
-            </div>
-            <div class="flex gap-6 text-[10px] uppercase tracking-widest">
-                <a href="#" class="hover:text-white transition-colors">Adatvédelem</a>
-                <a href="#" class="hover:text-white transition-colors">ÁSZF</a>
-                <a href="#" class="hover:text-white transition-colors">EVIV Licenc</a>
+    <!-- GYIK -->
+    <section id="gyik" class="py-24 px-6 border-b border-white/10">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-syne font-bold text-3xl md:text-5xl text-center mb-16">GYAKORI KÉRDÉSEK</h2>
+
+            <div class="space-y-4">
+                <div class="glass-panel p-6">
+                    <h3 class="font-syne font-bold text-lg mb-2">Mennyi garanciát vállaltok az elvégzett munkára?</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Minden elvégzett szerelésre és beszerelt szerelvényre 100% teljes körű garanciát vállalunk, valamint átadjuk az ehhez szükséges hivatalos dokumentációt.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6">
+                    <h3 class="font-syne font-bold text-lg mb-2">Hogyan zajlik az EV autó töltő telepítése?</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Első lépésben felmérjük a meglévő hálózat kapacitását (Amper). Szükség esetén elvégezzük a hálózatbővítést, letelepítjük a védelmi eszközöket és a fali töltőt.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6">
+                    <h3 class="font-syne font-bold text-lg mb-2">Hogyan kaphatok pontos árajánlatot?</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Keress minket közvetlenül telefonon vagy e-mailben. Egy rövid egyeztetés vagy ingyenes helyszíni felmérés után tételre lebontott, fix árajánlatot adunk.
+                    </p>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Kapcsolat / Árajánlatkérés -->
+    <section id="kapcsolat" class="py-24 px-6 bg-surface">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <span class="text-xs tracking-widest text-gray-500 uppercase">KAPCSOLAT & ÁRAJÁNLAT</span>
+            <h2 class="font-syne font-bold text-4xl md:text-6xl mt-2 mb-4">LÉPJ VELÜNK KAPCSOLATBA</h2>
+            <p class="text-gray-400 max-w-xl mx-auto font-light">
+                Árajánlatkéréshez és egyeztetéshez keress minket az alábbi elérhetőségek egyikén!
+            </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <!-- Telefon kártya -->
+            <a href="tel:+36301234567" class="glass-panel p-10 glass-panel-hover flex flex-col items-center text-center group">
+                <div class="w-16 h-16 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all">
+                    <i class="fa-solid fa-phone text-2xl"></i>
+                </div>
+                <span class="text-xs text-gray-500 uppercase tracking-widest mb-2">TELEFONSZÁM</span>
+                <span class="font-syne font-bold text-2xl md:text-3xl text-white group-hover:underline">+36 30 123 4567</span>
+                <p class="text-gray-400 text-xs mt-4">Hívj minket bizalommal munkaidőben!</p>
+            </a>
+
+            <!-- E-mail kártya -->
+            <a href="mailto:info@eviv.hu" class="glass-panel p-10 glass-panel-hover flex flex-col items-center text-center group">
+                <div class="w-16 h-16 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all">
+                    <i class="fa-solid fa-envelope text-2xl"></i>
+                </div>
+                <span class="text-xs text-gray-500 uppercase tracking-widest mb-2">E-MAIL CÍM</span>
+                <span class="font-syne font-bold text-2xl md:text-3xl text-white group-hover:underline">info@eviv.hu</span>
+                <p class="text-gray-400 text-xs mt-4">Küldd el a részleteket e-mailben, és hamarosan válaszolunk!</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Lábléc -->
+    <footer class="py-8 px-6 border-t border-white/10 text-center text-xs text-gray-500">
+        <p>© 2026 EVIV Villanyszerelés. Minden jog fenntartva. 16 éve a piacon.</p>
     </footer>
 
-    <script>
-        // Mobile Drawer Navigation Handler
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Dynamic Interactive Cost Calculator Engine
-        const calcType = document.getElementById('calcType');
-        const calcArea = document.getElementById('calcArea');
-        const calcOutlets = document.getElementById('calcOutlets');
-        const areaText = document.getElementById('areaText');
-        const outletText = document.getElementById('outletText');
-        const calcUrgent = document.getElementById('calcUrgent');
-        const calcSmart = document.getElementById('calcSmart');
-        
-        const calcTotal = document.getElementById('calcTotal');
-        const calcWorkFee = document.getElementById('calcWorkFee');
-        const calcMaterialFee = document.getElementById('calcMaterialFee');
-        
-        const areaContainer = document.getElementById('areaContainer');
-        const outletContainer = document.getElementById('outletContainer');
-
-        function updateCalculator() {
-            const type = calcType.value;
-            const area = parseInt(calcArea.value);
-            const outlets = parseInt(calcOutlets.value);
-            const isUrgent = calcUrgent.checked;
-            const isSmart = calcSmart.checked;
-
-            areaText.textContent = area;
-            outletText.textContent = outlets;
-
-            let workFee = 0;
-            let materialFee = 0;
-
-            if (type === 'complete') {
-                areaContainer.style.display = 'block';
-                outletContainer.style.display = 'block';
-                workFee = (area * 3400) + (outlets * 2600);
-                materialFee = (area * 2200) + (outlets * 1900);
-            } else if (type === 'evcharger') {
-                areaContainer.style.display = 'none';
-                outletContainer.style.display = 'none';
-                workFee = 65000;
-                materialFee = 145000;
-            } else if (type === 'fusebox') {
-                areaContainer.style.display = 'none';
-                outletContainer.style.display = 'none';
-                workFee = 48000;
-                materialFee = 38000;
-            } else if (type === 'troubleshoot') {
-                areaContainer.style.display = 'none';
-                outletContainer.style.display = 'none';
-                workFee = 38000;
-                materialFee = 12000;
-            }
-
-            if (isSmart && (type === 'complete')) {
-                workFee *= 1.25;
-                materialFee *= 1.4;
-            }
-
-            if (isUrgent) {
-                workFee *= 1.3;
-            }
-
-            const total = Math.round(workFee + materialFee);
-
-            calcTotal.textContent = total.toLocaleString('hu-HU');
-            calcWorkFee.textContent = Math.round(workFee).toLocaleString('hu-HU') + ' Ft';
-            calcMaterialFee.textContent = Math.round(materialFee).toLocaleString('hu-HU') + ' Ft';
-        }
-
-        calcType.addEventListener('change', updateCalculator);
-        calcArea.addEventListener('input', updateCalculator);
-        calcOutlets.addEventListener('input', updateCalculator);
-        calcUrgent.addEventListener('change', updateCalculator);
-        calcSmart.addEventListener('change', updateCalculator);
-
-        updateCalculator();
-
-        // Calculator to Form Data Bridge
-        const calcApplyBtn = document.getElementById('calcApplyBtn');
-        const calcSummaryContainer = document.getElementById('calcSummaryContainer');
-        const calcSummaryInput = document.getElementById('calcSummaryInput');
-
-        calcApplyBtn.addEventListener('click', () => {
-            const selectedType = calcType.options[calcType.selectedIndex].text;
-            const price = calcTotal.textContent;
-
-            calcSummaryContainer.classList.remove('hidden');
-            calcSummaryInput.value = `${selectedType} | Várható Ár: ~${price} Ft`;
-
-            document.getElementById('kapcsolat').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // Contact Form Submission Mock
-        const contactForm = document.getElementById('contactForm');
-        const formToast = document.getElementById('formToast');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formToast.classList.remove('hidden');
-            contactForm.reset();
-            calcSummaryContainer.classList.add('hidden');
-        });
-    </script>
 </body>
 </html>
