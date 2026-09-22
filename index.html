@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>EVIV | Villanyszerelési Szolgáltatások - 16 Éve a Piacon</title>
+    <meta name="description" content="EVIV villanyszerelés. Lakossági és ipari villanyszerelés, hálózatépítés, mérőhely-korszerűsítés, teljesítménybővítés és EV-töltők telepítése.">
+    <meta name="theme-color" content="#0A0A0A">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -28,452 +37,458 @@
             }
         }
     </script>
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #0A0A0A;
             color: #EDEDED;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
-        .font-syne { fontFamily: 'Syne', sans-serif; }
+
+        .font-syne {
+            font-family: 'Syne', sans-serif;
+        }
+
         .glass-panel {
             background: rgba(18, 18, 18, 0.7);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+
         .glass-panel-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         @media (hover: hover) {
             .glass-panel-hover:hover {
                 border-color: rgba(255, 255, 255, 0.3);
                 transform: translateY(-4px);
             }
         }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .modal-image {
+            transition: transform 0.4s ease;
+        }
+
+        .modal-image:hover {
+            transform: scale(1.03);
+        }
+
+        ::selection {
+            background: white;
+            color: black;
+        }
+
+        /* Görgetősáv */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-white selection:text-black">
 
-    <!-- Navigáció -->
+<body class="antialiased">
+
+    <!-- =========================
+         NAVIGÁCIÓ
+    ========================== -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-white text-black font-syne font-extrabold text-xl flex items-center justify-center">
+                <div class="w-10 h-10 bg-white text-black font-syne font-extrabold text-xl flex items-center justify-center group-hover:bg-gray-200 transition-colors">
                     E
                 </div>
+
                 <div class="flex flex-col">
-                    <span class="font-syne font-extrabold text-xl tracking-wider text-white">EVIV</span>
-                    <span class="text-[10px] text-gray-400 tracking-widest uppercase">Villanyszerelés</span>
+                    <span class="font-syne font-extrabold text-xl tracking-wider text-white">
+                        EVIV
+                    </span>
+
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase">
+                        Villanyszerelés
+                    </span>
                 </div>
             </a>
-            
+
             <!-- Desktop Menü -->
             <div class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
-                <a href="#szolgaltatasok" class="hover:text-gray-400 transition-colors">SZOLGÁLTATÁSOK</a>
-                <a href="#galeria" class="hover:text-gray-400 transition-colors">REFERENCIÁK</a>
-                <a href="#tapasztalat" class="hover:text-gray-400 transition-colors">16 ÉV TAPASZTALAT</a>
-                <a href="#gyik" class="hover:text-gray-400 transition-colors">GYIK</a>
-                <a href="#kapcsolat" class="hover:text-gray-400 transition-colors">KAPCSOLAT</a>
+                <a href="#szolgaltatasok" class="hover:text-gray-400 transition-colors">
+                    SZOLGÁLTATÁSOK
+                </a>
+
+                <a href="#galeria" class="hover:text-gray-400 transition-colors">
+                    REFERENCIÁK
+                </a>
+
+                <a href="#tapasztalat" class="hover:text-gray-400 transition-colors">
+                    16 ÉV TAPASZTALAT
+                </a>
+
+                <a href="#gyik" class="hover:text-gray-400 transition-colors">
+                    GYIK
+                </a>
+
+                <a href="#kapcsolat" class="hover:text-gray-400 transition-colors">
+                    KAPCSOLAT
+                </a>
             </div>
 
+            <!-- Desktop CTA -->
             <div class="hidden lg:block">
-                <a href="#kapcsolat" class="px-5 py-2.5 bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-all">
+                <a href="#kapcsolat"
+                   class="px-5 py-2.5 bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-all">
                     AJÁNLATKÉRÉS
                 </a>
             </div>
 
             <!-- Mobil Menü Gomb -->
-            <button id="mobileMenuBtn" class="lg:hidden p-3 text-white text-2xl focus:outline-none">
+            <button
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="Menü megnyitása"
+                aria-expanded="false"
+                class="lg:hidden p-3 text-white text-2xl focus:outline-none">
                 <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
         </div>
 
-        <!-- Mobil Menü Felület -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-obsidian border-b border-white/10 px-6 py-8 space-y-6">
-            <a href="#szolgaltatasok" class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">SZOLGÁLTATÁSOK</a>
-            <a href="#galeria" class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">REFERENCIÁK (GALÉRIA)</a>
-            <a href="#tapasztalat" class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">16 ÉV TAPASZTALAT</a>
-            <a href="#gyik" class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">GYIK</a>
-            <a href="#kapcsolat" class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">KAPCSOLAT</a>
-            <a href="#kapcsolat" class="block w-full py-4 bg-white text-black font-bold text-center tracking-wider mobile-link">
+        <!-- Mobil Menü -->
+        <div id="mobileMenu"
+             class="hidden lg:hidden bg-obsidian border-b border-white/10 px-6 py-8 space-y-6">
+
+            <a href="#szolgaltatasok"
+               class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">
+                SZOLGÁLTATÁSOK
+            </a>
+
+            <a href="#galeria"
+               class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">
+                REFERENCIÁK
+            </a>
+
+            <a href="#tapasztalat"
+               class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">
+                16 ÉV TAPASZTALAT
+            </a>
+
+            <a href="#gyik"
+               class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">
+                GYIK
+            </a>
+
+            <a href="#kapcsolat"
+               class="block text-lg font-syne text-white border-b border-white/10 pb-3 mobile-link">
+                KAPCSOLAT
+            </a>
+
+            <a href="#kapcsolat"
+               class="block w-full py-4 bg-white text-black font-bold text-center tracking-wider mobile-link">
                 AJÁNLATKÉRÉS
             </a>
         </div>
     </nav>
 
-    <!-- Hero Szekció -->
-    <section class="relative pt-32 pb-16 sm:pt-48 sm:pb-32 px-4 sm:px-6 overflow-hidden border-b border-white/10">
-        <div class="max-w-7xl mx-auto">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="relative pt-32 pb-16 sm:pt-48 sm:pb-32 px-4 sm:px-6 overflow-hidden border-b border-white/10 hero-grid">
+
+        <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 text-xs tracking-widest uppercase text-gray-300 mb-6 sm:mb-8">
                 <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                 16 ÉVE A LAKOSSÁGI ÉS IPARI PIACON
             </div>
-            
+
             <h1 class="font-syne font-extrabold text-4xl sm:text-7xl lg:text-8xl tracking-tight leading-tight mb-6 text-white">
-                PRECÍZIÓ ÉS <br>
+                PRECÍZIÓ ÉS
+                <br>
+
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">
                     SZAKÉRTELEM.
                 </span>
             </h1>
 
             <p class="max-w-2xl text-base sm:text-xl text-gray-400 mb-8 sm:mb-12 font-light leading-relaxed">
-                Mérnöki precizitású villanyszerelési megoldások a legmagasabb biztonsági szabványok szerint. Komplett kivitelezés, modernizálás és EV-töltők telepítése.
+                Mérnöki precizitású villanyszerelési megoldások a legmagasabb biztonsági szabványok szerint.
+                Komplett kivitelezés, modernizálás és EV-töltők telepítése.
             </p>
 
+            <!-- CTA gombok -->
             <div class="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16">
-                <a href="tel:+36205110985" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold text-center tracking-wider hover:bg-gray-200 transition-all flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-phone"></i> HÍVÁS: +36 20 5110 985
+
+                <a href="tel:+36205110985"
+                   class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold text-center tracking-wider hover:bg-gray-200 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone"></i>
+                    HÍVÁS: +36 20 511 0985
                 </a>
-                <a href="mailto:villszereviv@gmail.com" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-bold text-center tracking-wider hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-envelope"></i> villszereviv@gmail.com
+
+                <a href="mailto:villszereviv@gmail.com"
+                   class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-bold text-center tracking-wider hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-envelope"></i>
+                    EMAIL
                 </a>
             </div>
 
             <!-- Mutatók -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-8 sm:pt-12 border-t border-white/10">
+
                 <div>
-                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">16+</div>
-                    <div class="text-xs tracking-widest text-gray-500 uppercase">Év Tapasztalat</div>
+                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                        16+
+                    </div>
+
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">
+                        Év Tapasztalat
+                    </div>
                 </div>
+
                 <div>
-                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">100%</div>
-                    <div class="text-xs tracking-widest text-gray-500 uppercase">Garancia</div>
+                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                        100%
+                    </div>
+
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">
+                        Garancia
+                    </div>
                 </div>
+
                 <div>
-                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">1200+</div>
-                    <div class="text-xs tracking-widest text-gray-500 uppercase">Projekt</div>
-                </div
+                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                        1200+
+                    </div>
+
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">
+                        Projekt
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-syne text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                        24/7
+                    </div>
+
+                    <div class="text-xs tracking-widest text-gray-500 uppercase">
+                        Kapcsolat
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Szolgáltatások -->
-    <section id="szolgaltatasok" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-white/10">
+
+    <!-- =========================
+         SZOLGÁLTATÁSOK
+    ========================== -->
+    <section id="szolgaltatasok"
+             class="py-16 sm:py-24 px-4 sm:px-6 border-b border-white/10">
+
         <div class="max-w-7xl mx-auto">
+
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16">
+
                 <div>
-                    <span class="text-xs tracking-widest text-gray-500 uppercase">PROFI LEFEDETTSÉG</span>
-                    <h2 class="font-syne font-bold text-3xl sm:text-5xl mt-2">SZOLGÁLTATÁSOK</h2>
+                    <span class="text-xs tracking-widest text-gray-500 uppercase">
+                        PROFI LEFEDETTSÉG
+                    </span>
+
+                    <h2 class="font-syne font-bold text-3xl sm:text-5xl mt-2">
+                        SZOLGÁLTATÁSOK
+                    </h2>
                 </div>
+
                 <p class="text-gray-400 max-w-md mt-4 md:mt-0 font-light text-sm">
-                    Minden munkát a szabványoknak megfelelően, szabványossági nyilatkozattal és garanciával adunk át.
+                    Minden munkát a vonatkozó műszaki előírások figyelembevételével,
+                    dokumentáltan és garanciával adunk át.
                 </p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- 1 -->
                 <div class="glass-panel p-6 sm:p-8 glass-panel-hover">
                     <i class="fa-solid fa-house-bolt text-3xl text-white mb-6"></i>
-                    <h3 class="font-syne font-bold text-xl mb-3">Újrahuzalozás & Hálózat</h3>
+
+                    <h3 class="font-syne font-bold text-xl mb-3">
+                        Újrahuzalozás & Hálózat
+                    </h3>
+
                     <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Családi házak, lakások és irodák villamos hálózatának kiépítése, teljes felújítása és korszerűsítése.
+                        Családi házak, lakások és irodák villamos hálózatának kiépítése,
+                        teljes felújítása és korszerűsítése.
                     </p>
-                    <span class="text-xs tracking-widest uppercase text-gray-500">MÉRÉSEK ÉS KIVITELEZÉS</span>
+
+                    <span class="text-xs tracking-widest uppercase text-gray-500">
+                        MÉRÉSEK ÉS KIVITELEZÉS
+                    </span>
                 </div>
-                <div class="glass-panel p-6 sm:p-8 glass-panel-hover sm:col-span-2 lg:col-span-1">
+
+                <!-- 2 -->
+                <div class="glass-panel p-6 sm:p-8 glass-panel-hover">
                     <i class="fa-solid fa-box-archive text-3xl text-white mb-6"></i>
-                    <h3 class="font-syne font-bold text-xl mb-3">Mérőhely Korszerűsítés</h3>
+
+                    <h3 class="font-syne font-bold text-xl mb-3">
+                        Mérőhely Korszerűsítés
+                    </h3>
+
                     <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Regisztrált villanyszerelői munkák, mérőhelyek szabványosítása, Amper bővítés ügyintézése.
+                        Mérőhelyek szabványosítása, teljesítménybővítéshez kapcsolódó
+                        villanyszerelési munkák és ügyintézés.
                     </p>
-                    <span class="text-xs tracking-widest uppercase text-gray-500">KIVITELEZŐ</span>
+
+                    <span class="text-xs tracking-widest uppercase text-gray-500">
+                        KIVITELEZÉS
+                    </span>
                 </div>
+
+                <!-- 3 -->
+                <div class="glass-panel p-6 sm:p-8 glass-panel-hover">
+                    <i class="fa-solid fa-industry text-3xl text-white mb-6"></i>
+
+                    <h3 class="font-syne font-bold text-xl mb-3">
+                        Ipari Villanyszerelés
+                    </h3>
+
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Ipari gépek bekötése, kapcsolószekrények, elosztók,
+                        vezérlések és villamos hálózatok kiépítése.
+                    </p>
+
+                    <span class="text-xs tracking-widest uppercase text-gray-500">
+                        IPARI KIVITELEZÉS
+                    </span>
+                </div>
+
+                <!-- 4 -->
+                <div class="glass-panel p-6 sm:p-8 glass-panel-hover">
+                    <i class="fa-solid fa-charging-station text-3xl text-white mb-6"></i>
+
+                    <h3 class="font-syne font-bold text-xl mb-3">
+                        EV-Töltők Telepítése
+                    </h3>
+
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Elektromos autó töltők szakszerű telepítése,
+                        hálózat ellenőrzése és szükséges villamos kiépítés.
+                    </p>
+
+                    <span class="text-xs tracking-widest uppercase text-gray-500">
+                        E-MOBILITÁS
+                    </span>
+                </div>
+
+                <!-- 5 -->
+                <div class="glass-panel p-6 sm:p-8 glass-panel-hover">
+                    <i class="fa-solid fa-bolt text-3xl text-white mb-6"></i>
+
+                    <h3 class="font-syne font-bold text-xl mb-3">
+                        Teljesítménybővítés
+                    </h3>
+
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Villamos teljesítménybővítéshez szükséges előkészítés,
+                        mérőhelyi munkák és kapcsolódó kivitelezés.
+                    </p>
+
+                    <span class="text-xs tracking-widest uppercase text-gray-500">
+                        MŰSZAKI ELŐKÉSZÍTÉS
+                    </span>
+                </div>
+
+                <!-- 6 -->
+                <div class="glass-panel p-6 sm:p-8 glass-panel-hover">
+                    <i class="fa-solid fa-screwdriver-wrench text-3xl text-white mb-6"></i>
+
+                    <h3 class="font-syne font-bold text-xl mb-3">
+                        Hibakeresés & Javítás
+                    </h3>
+
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Villamos hibák feltárása, javítása, zárlatok és
+                        működési problémák kivizsgálása.
+                    </p>
+
+                    <span class="text-xs tracking-widest uppercase text-gray-500">
+                        HIBAELHÁRÍTÁS
+                    </span>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Galéria / Mappák Szekció -->
-    <section id="galeria" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-white/10 bg-surface">
+
+    <!-- =========================
+         GALÉRIA
+    ========================== -->
+    <section id="galeria"
+             class="py-16 sm:py-24 px-4 sm:px-6 border-b border-white/10 bg-surface">
+
         <div class="max-w-7xl mx-auto">
+
             <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-                <span class="text-xs tracking-widest text-gray-500 uppercase">MUNKÁINK KÉPEKBEN</span>
-                <h2 class="font-syne font-bold text-3xl sm:text-5xl mt-2 mb-4">REFERENCIA GALÉRIA</h2>
+
+                <span class="text-xs tracking-widest text-gray-500 uppercase">
+                    MUNKÁINK KÉPEKBEN
+                </span>
+
+                <h2 class="font-syne font-bold text-3xl sm:text-5xl mt-2 mb-4">
+                    REFERENCIA GALÉRIA
+                </h2>
+
                 <p class="text-gray-400 text-sm font-light">
-                    Kattints az alábbi kategóriák (mappák) egyikére a képek megtekintéséhez!
+                    Kattints az alábbi kategóriák egyikére a képek megtekintéséhez.
                 </p>
             </div>
 
-            <!-- Mappák Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Mappa 1: Ipari Elektronika -->
-                <div onclick="openFolder('ipari')" class="glass-panel p-6 cursor-pointer glass-panel-hover border border-white/10 group">
+
+            <!-- Mappák -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Ipari -->
+                <button
+                    type="button"
+                    onclick="openFolder('ipari')"
+                    class="text-left glass-panel p-6 cursor-pointer glass-panel-hover border border-white/10 group">
+
                     <div class="flex items-center justify-between mb-6">
+
                         <div class="w-12 h-12 bg-white/10 flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black transition-all">
                             <i class="fa-solid fa-folder-open"></i>
                         </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="font-syne font-bold text-lg text-white mb-2">Ipari Elektronika</h3>
-                    <p class="text-xs text-gray-400 mb-4">Kapcsolószekrények, ipari gépek bekötése és elosztók.</p>
-                    <div class="text-xs font-bold text-white flex items-center gap-2 group-hover:translate-x-2 transition-transform">
-                        KÉPEK MEGTEKINTÉSE <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
 
-                <!-- Mappa 2: Lakossági Villanyszerelés -->
-                <div onclick="openFolder('lakossag')" class="glass-panel p-6 cursor-pointer glass-panel-hover border border-white/10 group">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-12 h-12 bg-white/10 flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black transition-all">
-                            <i class="fa-solid fa-folder-open"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-syne font-bold text-lg text-white mb-2">Lakossági Szerelés</h3>
-                    <p class="text-xs text-gray-400 mb-4">Családi házak, lakások komplett kábelezése és szerelvényezés.</p>
-                    <div class="text-xs font-bold text-white flex items-center gap-2 group-hover:translate-x-2 transition-transform">
-                        KÉPEK MEGTEKINTÉSE <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-                <!-- Mappa 4: Mérőhelyek -->
-                <div onclick="openFolder('merohely')" class="glass-panel p-6 cursor-pointer glass-panel-hover border border-white/10 group">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-12 h-12 bg-white/10 flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black transition-all">
-                            <i class="fa-solid fa-folder-open"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-syne font-bold text-lg text-white mb-2">Mérőhelyek</h3>
-                    <p class="text-xs text-gray-400 mb-4">Szabványosított villanyóra szekrények és teljesítménybővítés.</p>
-                    <div class="text-xs font-bold text-white flex items-center gap-2 group-hover:translate-x-2 transition-transform">
-                        KÉPEK MEGTEKINTÉSE <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Galéria Modal (Ablak a képeknek) -->
-    <div id="galleryModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex-col justify-between p-4 sm:p-8">
-        <div class="flex items-center justify-between border-b border-white/10 pb-4 max-w-7xl mx-auto w-full">
-            <h3 id="modalTitle" class="font-syne font-bold text-xl text-white uppercase">Mappa tartalma</h3>
-            <button onclick="closeFolder()" class="text-white text-3xl p-2 hover:text-gray-400">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-
-        <!-- Képek konténere -->
-        <div class="max-w-7xl mx-auto w-full my-auto overflow-y-auto max-h-[75vh] py-6">
-            <div id="modalImagesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- A képek ide töltődnek be dinamiakusan JS-ből -->
-            </div>
-        </div>
-
-        <div class="text-center text-xs text-gray-500 border-t border-white/10 pt-4 max-w-7xl mx-auto w-full">
-            EVIV Refencia Galéria // Kattints a bezáráshoz
-        </div>
-    </div>
-
-    <!-- Miért az EVIV (16 év) -->
-    <section id="tapasztalat" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-white/10">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-                <span class="text-xs tracking-widest text-gray-500 uppercase">MIÉRT AZ EVIV?</span>
-                <h2 class="font-syne font-bold text-3xl sm:text-5xl mt-2 mb-6">16 ÉVE A SZAKMÁBAN.</h2>
-                <p class="text-gray-400 font-light leading-relaxed mb-8">
-                    Az <strong>EVIV</strong> több mint másfél évtizede garantálja a maximális biztonságot és minőséget. Nem ismerünk kompromisszumot a villanyszerelésben: prémium anyagokkal és a legújabb technológiai szabványokkal dolgozunk.
-                </p>
-                
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 p-4 border border-white/10 glass-panel">
-                        <i class="fa-solid fa-check text-white"></i>
-                        <span class="text-sm font-medium">100% Szabványossági és Biztonsági Garancia</span>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 border border-white/10 glass-panel">
-                        <i class="fa-solid fa-check text-white"></i>
-                        <span class="text-sm font-medium">Transzparens árazás, nincsenek rejtett költségek</span>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 border border-white/10 glass-panel">
-                        <i class="fa-solid fa-check text-white"></i>
-                        <span class="text-sm font-medium">Tiszta, rendezett munkavégzés</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-panel p-6 sm:p-12 border border-white/20 relative">
-                <div class="absolute top-0 right-0 p-4 sm:p-6 text-[10px] sm:text-xs tracking-widest text-gray-600 font-syne">EVIV // EST. 2010</div>
-                <h3 class="font-syne font-bold text-xl sm:text-2xl mb-6">MUNKAFOLYAMATUNK</h3>
-                
-                <div class="space-y-8">
-                    <div class="flex gap-4 sm:gap-6">
-                        <span class="font-syne font-bold text-gray-600">01</span>
-                        <div>
-                            <h4 class="font-bold text-sm uppercase tracking-wide">Helyszíni Felmérés</h4>
-                            <p class="text-gray-400 text-xs mt-1">Pontos igényfelmérés és műszaki tanácsadás a helyszínen.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 sm:gap-6">
-                        <span class="font-syne font-bold text-gray-600">02</span>
-                        <div>
-                            <h4 class="font-bold text-sm uppercase tracking-wide">Részletes Árajánlat</h4>
-                            <p class="text-gray-400 text-xs mt-1">Tételre lebontott, KATA/Céges kompatibilis árajánlat készítése.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 sm:gap-6">
-                        <span class="font-syne font-bold text-gray-600">03</span>
-                        <div>
-                            <h4 class="font-bold text-sm uppercase tracking-wide">Precíz Kivitelezés</h4>
-                            <p class="text-gray-400 text-xs mt-1">Szakszerű munkavégzés határidőre, érintésvédelmi jegyzőkönyvvel.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GYIK -->
-    <section id="gyik" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-white/10 bg-surface">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-syne font-bold text-3xl sm:text-5xl text-center mb-12 sm:mb-16">GYAKORI KÉRDÉSEK</h2>
-
-            <div class="space-y-4">
-                <div class="glass-panel p-6">
-                    <h3 class="font-syne font-bold text-lg mb-2">Mennyi garanciát vállaltok az elvégzett munkára?</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Minden elvégzett szerelésre és beszerelt szerelvényre 100% teljes körű garanciát vállalunk, valamint átadjuk az ehhez szükséges hivatalos dokumentációt.
-                    </p>
-                </div>
-
-                
-
-                <div class="glass-panel p-6">
-                    <h3 class="font-syne font-bold text-lg mb-2">Hogyan kaphatok pontos árajánlatot?</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Keress minket közvetlenül telefonon vagy e-mailben. Egy rövid egyeztetés vagy ingyenes helyszíni felmérés után tételre lebontott, fix árajánlatot adunk.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kapcsolat / Árajánlatkérés -->
-    <section id="kapcsolat" class="py-16 sm:py-24 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto text-center mb-12 sm:mb-16">
-            <span class="text-xs tracking-widest text-gray-500 uppercase">KAPCSOLAT & ÁRAJÁNLAT</span>
-            <h2 class="font-syne font-bold text-3xl sm:text-6xl mt-2 mb-4">LÉPJ VELÜNK KAPCSOLATBA</h2>
-            <p class="text-gray-400 max-w-xl mx-auto font-light text-sm sm:text-base">
-                Árajánlatkéréshez és egyeztetéshez keress minket az alábbi elérhetőségek egyikén!
-            </p>
-        </div>
-
-        <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-6 sm:gap-8">
-            <!-- Telefon kártya -->
-            <a href="tel:+36301234567" class="glass-panel p-8 sm:p-10 glass-panel-hover flex flex-col items-center text-center group">
-                <div class="w-16 h-16 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all">
-                    <i class="fa-solid fa-phone text-2xl"></i>
-                </div>
-                <span class="text-xs text-gray-500 uppercase tracking-widest mb-2">TELEFONSZÁM</span>
-                <span class="font-syne font-bold text-xl sm:text-3xl text-white group-hover:underline">+36 30 123 4567</span>
-                <p class="text-gray-400 text-xs mt-4">Hívj minket bizalommal munkaidőben!</p>
-            </a>
-
-            <!-- E-mail kártya -->
-            <a href="mailto:info@eviv.hu" class="glass-panel p-8 sm:p-10 glass-panel-hover flex flex-col items-center text-center group">
-                <div class="w-16 h-16 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all">
-                    <i class="fa-solid fa-envelope text-2xl"></i>
-                </div>
-                <span class="text-xs text-gray-500 uppercase tracking-widest mb-2">E-MAIL CÍM</span>
-                <span class="font-syne font-bold text-xl sm:text-3xl text-white group-hover:underline">info@eviv.hu</span>
-                <p class="text-gray-400 text-xs mt-4">Küldd el a részleteket e-mailben, és hamarosan válaszolunk!</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- Lábléc -->
-    <footer class="py-8 px-6 border-t border-white/10 text-center text-xs text-gray-500">
-        <p>© 2026 EVIV Villanyszerelés. Minden jog fenntartva. 16 éve a piacon.</p>
-    </footer>
-
-    <!-- Script a Mobil Menühöz és a GitHub Galériához -->
-    <script>
-        // Mobil Menü
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')){
-                menuIcon.className = 'fa-solid fa-bars';
-            } else {
-                menuIcon.className = 'fa-solid fa-xmark';
-            }
-        });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = 'fa-solid fa-bars';
-            });
-        });
-
-        // GitHub Képek Adatbázis (Cseréld le a képek URL-jét a saját GitHub-os RAW képeidre!)
-        // Példa URL szerkezet: https://raw.githubusercontent.com/FELHASZNÁLÓNÉV/REPO/main/mappa/kep.jpg
-        const galleryData = {
-            'ipari': {
-                title: 'Ipari Elektronika Munkáink',
-                images: [
-                    'ipari/ip.png',
-                    'ipari/ip2.png'
-                    'ipari/ip3.png'
-                    'ipari/ip4.png'
-                    'ipari/ip5.png'
-                    'ipari/ip6.png'
-                    'ipari/ip6.png'
-                    'ipari/ip(1).webp'
-                    'ipari/ip(2).webp'
-                    'ipari/ip(3).webp'
-                    'ipari/ip(4).webp'
-                    'ipari/ip(5).webp'
-                    'ipari/ip(6).webp'
-                    'ipari/ip(7).webp'
-                    'ipari/ip(8).webp'
-                    'ipari/ip(9).webp'
-                    'ipari/ip(10).webp'
-                    'ipari/ip(11).webp'
-                ]
-            },
-            'lakossag': {
-                title: 'Lakossági Villanyszerelés',
-                images: [
-                    '',
-                    ''
-                ]
-            }
-            'merohely': {
-                title: 'Szabványos Mérőhelyek',
-                images: [
-                    ''
-                ]
-            }
-        };
-
-        function openFolder(folderKey) {
-            const data = galleryData[folderKey];
-            if (!data) return;
-
-            document.getElementById('modalTitle').textContent = data.title;
-            const grid = document.getElementById('modalImagesGrid');
-            grid.innerHTML = '';
-
-            data.images.forEach(imgUrl => {
-                const card = document.createElement('div');
-                card.className = 'glass-panel overflow-hidden border border-white/10 group';
-                card.innerHTML = `
-                    <img src="${imgUrl}" alt="EVIV Refencia" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                `;
-                grid.appendChild(card);
-            });
-
-            const modal = document.getElementById('galleryModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeFolder() {
-            const modal = document.getElementById('galleryModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
-</body>
-</html>
+                    <h3 class="font-syne font-bold text-lg text-white mb-
